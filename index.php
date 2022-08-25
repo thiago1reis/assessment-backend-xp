@@ -1,8 +1,10 @@
 <?php 
     require __DIR__.'/vendor/autoload.php';
-    include __DIR__.'/includes/layout/header.php';
+    include __DIR__.'/includes/header.php';
 ?>
-<div class="header-list-page">
+  <!-- Main Content -->
+  <main class="content">
+    <div class="header-list-page">
       <h1 class="title">Dashboard</h1>
     </div>
     <div class="infor">
@@ -11,7 +13,7 @@
     <ul class="product-list">
       <li>
         <div class="product-image">
-          <img src="images/product/tenis-runner-bolt.png" layout="responsive" width="164" height="145" alt="Tênis Runner Bolt" />
+          <img src="assets/images/product/tenis-runner-bolt.png" layout="responsive" width="164" height="145" alt="Tênis Runner Bolt" />
         </div>
         <div class="product-info">
           <div class="product-name"><span>Tênis Runner Bolt</span></div>
@@ -21,7 +23,7 @@
       <li>
         <div class="product-image">
           <a href="tenis-basket-light.html" title="Tênis Basket Light">
-            <img src="images/product/tenis-basket-light.png" layout="responsive" width="164" height="145" alt="Tênis Basket Light" />
+            <img src="assets/images/product/tenis-basket-light.png" layout="responsive" width="164" height="145" alt="Tênis Basket Light" />
           </a>
         </div>
         <div class="product-info">
@@ -50,6 +52,8 @@
         </div>
       </li>
     </ul>
+  </main>
+  <!-- Main Content -->
 <?php 
-    include __DIR__.'/includes/layout/footer.php';
+    include __DIR__.'/includes/footer.php';
 ?>   
