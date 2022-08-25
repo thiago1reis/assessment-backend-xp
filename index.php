@@ -1,5 +1,5 @@
 <?php 
-    require __DIR__.'/vendor/autoload.php';
+
     include __DIR__.'/includes/header.php';
 ?>
   <!-- Main Content -->
@@ -8,7 +8,7 @@
       <h1 class="title">Dashboard</h1>
     </div>
     <div class="infor">
-      You have 4 products added on this store: <a href="addProduct.html" class="btn-action">Add new Product</a>
+      You have 4 products added on this store: <a href="addProduct.php" class="btn-action">Add new Product</a>
     </div>
     <ul class="product-list">
       <li>

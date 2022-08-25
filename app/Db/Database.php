@@ -1,14 +1,10 @@
 <?php 
 
-namespace App\DB;
+namespace App\Db;
 use \PDO;
 use PDOException;
 
 class Database{
-    // const HOST = 'localhost';
-    // const NAME = 'assessment_backend_xp';
-    // const USER = 'root';
-    // const PASS = '';
     private $table; 
     private $connection;
 
@@ -25,5 +21,29 @@ class Database{
             die('ERROR: '.$e->getMessage());
         }
     }
+
+    public function execute($query, $params = []){
+        try{
+          $statement = $this->connection->prepare($query);
+          $statement->execute($params);
+          return $statement;
+        }catch(PDOException $e){
+            die('ERROR: '.$e->getMessage());
+        }
+    }
+
+    public function insert($values){
+        $statement = $this->connection->prepare('INSERT INTO '.$this->table.' (name, sku, price, description, quantity) VALUES (:name, :sku, :price, :description, :quantity)');
+        $statement->execute(array(
+            ':name' => $values['name'],
+            ':sku' => $values['sku'],
+            ':price' => $values['price'],
+            ':description' => $values['description'],
+            ':quantity' => $values['quantity']
+        ));
+        return $this->connection->lastInsertId();
+    }
+
+
 
 }
