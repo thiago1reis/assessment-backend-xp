@@ -5,8 +5,7 @@
 <!-- Main Content -->
   <main class="content">
     <h1 class="title new-item">New Product</h1>
-    
-    <form method="POST" action="processAddProduct.php">
+    <form method="POST" action="processAddProduct.php"> 
       <div class="input-field">
         <label for="sku" class="label">Product SKU</label>
         <input type="number" id="sku" name="sku" class="input-text" /> 

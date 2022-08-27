@@ -3,7 +3,7 @@ require __DIR__.'/vendor/autoload.php';
 
 use \App\Entity\Product;
 
-if(isset($_POST['sku'], $_POST['name'], $_POST['price'], $_POST['quantity'], $_POST['description'],)){ 
+if($_POST['sku'] and $_POST['name'] and $_POST['price'] and $_POST['quantity'] and $_POST['description']){ 
     $obProduct = new Product;
     $obProduct->sku = $_POST['sku'];
     $obProduct->name = $_POST['name'];
@@ -13,5 +13,7 @@ if(isset($_POST['sku'], $_POST['name'], $_POST['price'], $_POST['quantity'], $_P
     $obProduct->description = $_POST['description'];
 
   
-    $obProduct->create();
+    $obProduct->createProducs();
+}else{
+    echo 'Preencha o formulário';
 }
