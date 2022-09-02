@@ -26,7 +26,7 @@
                       </td>
                       <td class="data-grid-td">
                         <div class="actions">
-                          <div class="action edit"><span>Edit</span></div>
+                          <div class="action edit"><a href="editProduct.php?id='.$product->id.'">Edit</a></div>
                           <div class="action delete"><span>Delete</span></div>
                         </div>
                       </td>
@@ -35,11 +35,11 @@
 
   include __DIR__.'/includes/header.php';
 ?>
-  <!-- Main Content -->
+<!-- Main Content -->
   <main class="content">
     <div class="header-list-page">
       <h1 class="title">Products</h1>
-      <a href="addProduct.html" class="btn-action">Add new Product</a>
+      <a href="addProduct.php" class="btn-action">Add new Product</a>
     </div>
     <table class="data-grid">
       <tr class="data-row">
@@ -66,7 +66,7 @@
       <?=$tableData?>
     </table>
   </main>
-  <!-- Main Content -->
+<!-- Main Content -->
 <?php 
     include __DIR__.'/includes/footer.php';
 ?>   

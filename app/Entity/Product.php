@@ -10,25 +10,33 @@ class Product{
     public $sku;
     public $name;
     public $price;
-    public $description;
     public $quantity;
+    public $description;
 
-    public function createProducs(){
-       
-        $obDatabase = new Database('products');
-        $obDatabase->insert([
+   
+
+    public function createProduct(){
+        $product = new Database('products');
+        $this->id = $product->insert([
             'sku' => $this->sku,
             'name' => $this->name,
             'price' => $this->price,
+            'quantity' => $this->quantity,
             'description' => $this->description,
-            'quantity' => $this->quantity
         ]);
-        return print_r($obDatabase);
+        return $this->id;
+       // echo "<pre>"; print_r($this->id); echo "</pre>"; exit;
     }
 
+  
     public static function getProducts(){
         return (new Database('products'))->select()->fetchAll(PDO::FETCH_CLASS,self::class);
     }
+
+
+   public static function getProduct($id){
+    return (new Database('products'))->find($id);
+   }
 
 
 }

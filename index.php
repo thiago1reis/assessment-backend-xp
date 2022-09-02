@@ -33,7 +33,7 @@
       <li>
         <div class="product-image">
           <a href="tenis-basket-light.html" title="Tênis Basket Light">
-           <img src="images/product/tenis-2d-shoes.png" layout="responsive" width="164" height="145" alt="Tênis 2D Shoes" />
+           <img src="assets/images/product/tenis-2d-shoes.png" layout="responsive" width="164" height="145" alt="Tênis 2D Shoes" />
           </a>
         </div>
         <div class="product-info">
@@ -43,7 +43,7 @@
       </li>
       <li>
         <div class="product-image">
-          <img src="images/product/tenis-sneakers-43n.png" layout="responsive" width="164" height="145" alt="Tênis Sneakers 43N" />
+          <img src="assets/images/product/tenis-sneakers-43n.png" layout="responsive" width="164" height="145" alt="Tênis Sneakers 43N" />
         </div>
         <div class="product-info">
           <div class="product-name"><span>Tênis Sneakers 43N</span></div>

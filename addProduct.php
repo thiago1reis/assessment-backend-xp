@@ -1,9 +1,9 @@
 <?php 
-    require __DIR__.'/vendor/autoload.php';
-    include __DIR__.'/includes/header.php';
+require __DIR__.'/vendor/autoload.php';
+include __DIR__.'/includes/header.php';
 ?>
 <!-- Main Content -->
-  <main class="content">
+<main class="content">
     <h1 class="title new-item">New Product</h1>
     <form method="POST" action="processAddProduct.php"> 
       <div class="input-field">
@@ -24,11 +24,11 @@
       </div>
       <div class="input-field">
         <label for="category" class="label">Categories</label>
-        <select multiple id="category" name="category" class="input-text">
-          <option>Category 1</option>
-          <option>Category 2</option>
-          <option>Category 3</option>
-          <option>Category 4</option>
+        <select multiple id="category" name="category[]" class="input-text">
+          <option value="1">Category 1</option>
+          <option value="2">Category 2</option>
+          <option value="3">Category 3</option>
+          <option value="4">Category 4</option>
         </select>
       </div>
       <div class="input-field">
@@ -36,13 +36,13 @@
         <textarea id="description" name="description" class="input-text"></textarea>
       </div>
       <div class="actions-form">
-        <a href="products.html" class="action back">Back</a>
+        <a href="products.php" class="action back">Back</a>
         <input class="btn-submit btn-action" type="submit" value="Save Product" />
       </div>
       
     </form>
   </main>
-  <!-- Main Content -->
+<!-- Main Content -->
 <?php 
-    include __DIR__.'/includes/footer.php';
-?>   
+include __DIR__.'/includes/footer.php';
+?>

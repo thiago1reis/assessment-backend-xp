@@ -10,10 +10,10 @@ class Database{
 
     public function __construct($table = null){
         $this->table = $table;
-        $this->seteConnection();
+        $this->setConnection();
     }
 
-    private function seteConnection(){
+    private function setConnection(){
         try{
             $this->connection = new PDO("mysql:host=localhost;dbname=assessment_backend_xp", "root", "");
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -33,14 +33,10 @@ class Database{
     }
 
     public function insert($values){
-        $statement = $this->connection->prepare('INSERT INTO '.$this->table.' (name, sku, price, description, quantity) VALUES (:name, :sku, :price, :description, :quantity)');
-        $statement->execute(array(
-            ':name' => $values['name'],
-            ':sku' => $values['sku'],
-            ':price' => $values['price'],
-            ':description' => $values['description'],
-            ':quantity' => $values['quantity']
-        ));
+        $filds = array_keys($values);
+        $binds = array_pad([],count($filds), '?');
+        $query = 'INSERT INTO '.$this->table.' ('.implode(',',$filds).') VALUES ('.implode(',',$binds).')';
+        $this->execute($query,array_values($values));
         return $this->connection->lastInsertId();
     }
 
@@ -49,5 +45,10 @@ class Database{
         return $this->execute($query);
     }
 
+
+    public function find($id){
+        $query = 'SELECT FROM '.$this->table.' WHERE id = '.$id.'';
+        return $this->execute($query);
+    }
 
 }
