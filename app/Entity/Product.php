@@ -13,8 +13,7 @@ class Product{
     public $quantity;
     public $description;
 
-   
-
+    //Método para cadastrar produto
     public function createProduct(){
         $product = new Database('products');
         $this->id = $product->insert([
@@ -25,18 +24,26 @@ class Product{
             'description' => $this->description,
         ]);
         return $this->id;
-       // echo "<pre>"; print_r($this->id); echo "</pre>"; exit;
     }
 
-  
-    public static function getProducts(){
-        return (new Database('products'))->select()->fetchAll(PDO::FETCH_CLASS,self::class);
+    //Método para verificar se sku já existe 
+    public static function verifySku($sku){ 
+       $result = (new Database('products'))->exist('sku', $sku)->fetchAll(PDO::FETCH_ASSOC);
+       if(count($result) == 1){
+           return true; 
+       }else{
+           return false;
+       }
     }
-
-
-   public static function getProduct($id){
-    return (new Database('products'))->find($id);
-   }
+    
+    //Método para listar produtos
+    public static function getProducts($where = null){
+        return (new Database('products'))->select($where)->fetchAll(PDO::FETCH_CLASS,self::class);
+    }
+    
+//    public static function getProduct($id){
+//     return (new Database('products'))->find($id);
+//    }
 
 
 }

@@ -22,7 +22,7 @@
                         <span class="data-grid-cell-content">'.$product->quantity.'</span>
                       </td>
                       <td class="data-grid-td">
-                        <span class="data-grid-cell-content">Categorias</span>
+                        <span class="data-grid-cell-content"></span>
                       </td>
                       <td class="data-grid-td">
                         <div class="actions">

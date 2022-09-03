@@ -40,14 +40,23 @@ class Database{
         return $this->connection->lastInsertId();
     }
 
-    public function select(){
-        $query = 'SELECT * FROM '.$this->table.'';
+    public function select($where = null, $filds = '*'){
+        //Dados da query
+        $where = strlen($where) ? 'WHERE '.$where : '';
+        //Monta query
+        $query = 'SELECT '.$filds.' FROM '.$this->table.' '.$where.'';
+        //Executa query
         return $this->execute($query);
     }
 
 
-    public function find($id){
-        $query = 'SELECT FROM '.$this->table.' WHERE id = '.$id.'';
+    // public function find($sku){
+    //     $query = 'SELECT FROM '.$this->table.' WHERE sku = '.$sku.'';
+    //     return $this->execute($query);
+    // }
+
+    public function exist($column, $data){
+        $query = 'SELECT * FROM '.$this->table.' WHERE '.$column.' = '.$data.'';   
         return $this->execute($query);
     }
 
