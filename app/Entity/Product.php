@@ -26,9 +26,25 @@ class Product{
         return $this->id;
     }
 
+    //Método para atualizar produto
+    public function updateProduct(){
+        return (new Database('products'))->update('id = '.$this->id,[
+            'sku' => $this->sku,
+            'name' => $this->name,
+            'price' => $this->price,
+            'quantity' => $this->quantity,
+            'description' => $this->description,
+        ]);
+    }
+
+    //Método para deletar produto do banco 
+    public function deleteProduct(){
+        return (new Database('products'))->delete('id = '.$this->id);
+    } 
+
     //Método para verificar se sku já existe 
     public static function verifySku($sku){ 
-       $result = (new Database('products'))->exist('sku', $sku)->fetchAll(PDO::FETCH_ASSOC);
+       $result = (new Database('products'))->exist('sku = '.$sku)->fetchAll(PDO::FETCH_ASSOC);
        if(count($result) == 1){
            return true; 
        }else{
@@ -41,9 +57,9 @@ class Product{
         return (new Database('products'))->select($where)->fetchAll(PDO::FETCH_CLASS,self::class);
     }
     
-//    public static function getProduct($id){
-//     return (new Database('products'))->find($id);
-//    }
-
+    //Método para buscar um produtodo por ID
+    public static function getProduct($id){
+        return (new Database('products'))->select('id = '.$id)->fetchObject(self::class);
+    }
 
 }

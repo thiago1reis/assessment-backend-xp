@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Db\Database;
 
-
 class ProductCategories{
     public $product_id;
     public $category_id;

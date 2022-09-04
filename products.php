@@ -1,13 +1,13 @@
 <?php
-  require __DIR__.'/vendor/autoload.php';
+require __DIR__.'/vendor/autoload.php';
 
-  use \App\Entity\Product;
+use \App\Entity\Product;
 
-  $products = Product::getProducts();
+$products = Product::getProducts();
 
-  $tableData = '';
+$tableData = '';
 
-  foreach($products as $product){
+foreach($products as $product){
     $tableData .= '<tr class="data-row">
                       <td class="data-grid-td">
                         <span class="data-grid-cell-content">'.$product->name.'</span>
@@ -27,13 +27,13 @@
                       <td class="data-grid-td">
                         <div class="actions">
                           <div class="action edit"><a href="editProduct.php?id='.$product->id.'">Edit</a></div>
-                          <div class="action delete"><span>Delete</span></div>
+                          <div class="action delete"><a href="processDeleteProduct.php?id='.$product->id.'">Delete</a></div>
                         </div>
                       </td>
                   </tr>';
   }
 
-  include __DIR__.'/includes/header.php';
+include __DIR__.'/includes/header.php';
 ?>
 <!-- Main Content -->
   <main class="content">
@@ -68,5 +68,5 @@
   </main>
 <!-- Main Content -->
 <?php 
-    include __DIR__.'/includes/footer.php';
+include __DIR__.'/includes/footer.php';
 ?>   

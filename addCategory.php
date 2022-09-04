@@ -1,20 +1,17 @@
 <?php 
-    include __DIR__.'/includes/header.php';
+include __DIR__.'/includes/header.php';
 ?>  
   <!-- Main Content -->
   <main class="content">
     <h1 class="title new-item">New Category</h1>
-    
-    <form>
+    <form method="POST" action="processAddCategory.php">
       <div class="input-field">
         <label for="category-name" class="label">Category Name</label>
-        <input type="text" id="category-name" class="input-text" />
-        
+        <input type="text" id="name" name="name" class="input-text" />
       </div>
       <div class="input-field">
         <label for="category-code" class="label">Category Code</label>
-        <input type="text" id="category-code" class="input-text" />
-        
+        <input type="number" id="code" name="code" class="input-text" />
       </div>
       <div class="actions-form">
         <a href="categories.php" class="action back">Back</a>
@@ -24,5 +21,5 @@
   </main>
   <!-- Main Content -->
 <?php 
-    include __DIR__.'/includes/footer.php';
+include __DIR__.'/includes/footer.php';
 ?>   

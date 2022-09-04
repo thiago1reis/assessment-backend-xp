@@ -1,5 +1,18 @@
-<?php 
+<?php
 require __DIR__.'/vendor/autoload.php';
+
+use App\Entity\Category;
+
+//Instacia categorias
+$categories = Category::getCategories();
+
+$options = '';
+
+//Opções de categorias para o formulario
+foreach($categories as $category){
+  $options .= ' <option value="'.$category->id.'">'.$category->name.'</option>';
+}
+
 include __DIR__.'/includes/header.php';
 ?>
 <!-- Main Content -->
@@ -25,10 +38,7 @@ include __DIR__.'/includes/header.php';
       <div class="input-field">
         <label for="category" class="label">Categories</label>
         <select multiple id="category" name="category[]" class="input-text">
-          <option value="1">Category 1</option>
-          <option value="2">Category 2</option>
-          <option value="3">Category 3</option>
-          <option value="4">Category 4</option>
+          <?=$options?>
         </select>
       </div>
       <div class="input-field">

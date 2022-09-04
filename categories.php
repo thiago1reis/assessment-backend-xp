@@ -1,5 +1,30 @@
-<?php 
-    include __DIR__.'/includes/header.php';
+<?php
+require __DIR__.'/vendor/autoload.php';
+
+use App\Entity\Category;
+
+$categories = Category::getCategories();
+
+$tableData = '';
+
+foreach($categories as $category){
+    $tableData .= '<tr class="data-row">
+                      <td class="data-grid-td">
+                        <span class="data-grid-cell-content">'.$category->name.'</span>
+                      </td>
+                      <td class="data-grid-td">
+                        <span class="data-grid-cell-content">'.$category->code.'</span>
+                      </td>
+                      <td class="data-grid-td">
+                        <div class="actions">
+                          <div class="action edit"><a href="editCategory.php?id='.$category->id.'">Edit</a></div>
+                          <div class="action delete"><a href="processDeleteCategory.php?id='.$category->id.'">Delete</a></div>
+                        </div>
+                      </td>
+                  </tr>';
+  }
+
+include __DIR__.'/includes/header.php';
 ?>  
   <!-- Main Content -->
   <main class="content">
@@ -19,41 +44,10 @@
             <span class="data-grid-cell-content">Actions</span>
         </th>
       </tr>
-      <tr class="data-row">
-        <td class="data-grid-td">
-           <span class="data-grid-cell-content">Category 1 Name</span>
-        </td>
-      
-        <td class="data-grid-td">
-           <span class="data-grid-cell-content">Category 1 Code</span>
-        </td>
-      
-        <td class="data-grid-td">
-          <div class="actions">
-            <div class="action edit"><span>Edit</span></div>
-            <div class="action delete"><span>Delete</span></div>
-          </div>
-        </td>
-      </tr>
-      <tr class="data-row">
-        <td class="data-grid-td">
-           <span class="data-grid-cell-content">Category 2 Name</span>
-        </td>
-      
-        <td class="data-grid-td">
-           <span class="data-grid-cell-content">Category 2 Code</span>
-        </td>
-      
-        <td class="data-grid-td">
-          <div class="actions">
-            <div class="action edit"><span>Edit</span></div>
-            <div class="action delete"><span>Delete</span></div>
-          </div>
-        </td>
-      </tr>
+      <?=$tableData?>
     </table>
   </main>
   <!-- Main Content -->
 <?php 
-    include __DIR__.'/includes/footer.php';
+include __DIR__.'/includes/footer.php';
 ?>   

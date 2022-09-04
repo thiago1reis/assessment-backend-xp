@@ -5,7 +5,6 @@ use App\Entity\ProductCategories;
 
 //Verifica se os campos foram informados
 if($_POST['sku'] and $_POST['name'] and $_POST['price'] and $_POST['quantity'] and $_POST['category'] and $_POST['description']){ 
-    
     $obProduct = new Product;
     $obProduct->sku = $_POST['sku'];
     $obProduct->name = $_POST['name'];
@@ -25,6 +24,7 @@ if($_POST['sku'] and $_POST['name'] and $_POST['price'] and $_POST['quantity'] a
     //Cadastra Produto
     $obProduct->createProduct();
 
+
     //Define as categorias do produto cadastrado 
     $ProductCategories = new ProductCategories;
     $ProductCategories->product_id = $obProduct->id;
@@ -32,7 +32,7 @@ if($_POST['sku'] and $_POST['name'] and $_POST['price'] and $_POST['quantity'] a
         $ProductCategories->category_id = $category;
         $ProductCategories->setCategories();
     }
-
+    
     //Retorna a lista de produtos com menssagem de sucesso
     echo"<script>
             window.alert('Produto cadastrado com sucesso!')
