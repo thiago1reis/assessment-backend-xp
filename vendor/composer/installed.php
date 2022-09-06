@@ -3,7 +3,7 @@
         'name' => 'assessment-backend-xp/desafio',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'f3a267ddb71ddd5b811f27869649bec46885e222',
+        'reference' => '73acb16163babbdd357b44a132627eb8f363a78a',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'assessment-backend-xp/desafio' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'f3a267ddb71ddd5b811f27869649bec46885e222',
+            'reference' => '73acb16163babbdd357b44a132627eb8f363a78a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

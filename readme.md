@@ -9,7 +9,11 @@
 ## Como rodar o projeto 
 - Clone o projeto 
 ```sh
-	git clone https://thiagoalexandreis@bitbucket.org/thiagoalexandreis/assessment-backend-xp.git
+	git clone https://github.com/thiago1reis/assessment-backend-xp.git
+```
+- Entre no diretório do proejto 
+```sh
+	cd assessment-backend-xp
 ```
 - Instale as dependências 
 ```sh
